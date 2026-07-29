@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="REEVA provides intelligent, evidence-based clinical and medical-legal support for personal injury cases." />
+  <title>REEVA | Protecting Outcomes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #061a3b;
+      --ink-light: #123568;
+      --blue: #2563c9;
+      --aqua: #4ea4b7;
+      --lime: #8eb84a;
+      --violet: #6954b8;
+      --orange: #d6974c;
+      --mist: #f3f7fa;
+      --line: #dce5eb;
+      --muted: #65748a;
+      --white: #fff;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: var(--white); font-family: "DM Sans", sans-serif; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1140px, calc(100% - 48px)); margin: 0 auto; }
+    .eyebrow { display: flex; align-items: center; gap: 10px; color: var(--blue); font-size: .73rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 28px; height: 2px; background: currentColor; }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 50px; padding: 0 23px; border: 1px solid transparent; background: var(--blue); color: #fff; font-size: .88rem; font-weight: 700; transition: .2s ease; cursor: pointer; }
+    .button:hover { background: var(--ink); transform: translateY(-2px); }
+    .button-arrow { font-size: 1.15rem; line-height: 1; }
+
+    header { height: 84px; display: flex; align-items: center; border-bottom: 1px solid rgba(6, 26, 59, .09); }
+    .nav { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; }
+    .brand-mark { position: relative; display: grid; grid-template-columns: 5px 5px 5px 5px; gap: 2px; align-items: end; width: 31px; height: 35px; transform: skewX(-21deg); }
+    .brand-mark i { display: block; width: 5px; height: 28px; background: var(--lime); }
+    .brand-mark i:nth-child(2) { height: 34px; background: var(--blue); }
+    .brand-mark i:nth-child(3) { height: 34px; background: var(--violet); }
+    .brand-mark i:nth-child(4) { height: 25px; background: var(--orange); }
+    .brand-name { font-family: "Manrope", sans-serif; font-size: 1.42rem; font-weight: 800; letter-spacing: .08em; line-height: 1; }
+    .brand-name small { display: block; margin-top: 5px; color: #69738a; font-size: .46rem; font-weight: 700; letter-spacing: .37em; text-align: justify; }
+    .nav-links { display: flex; align-items: center; gap: 31px; color: #32435e; font-size: .82rem; font-weight: 600; }
+    .nav-links a:hover { color: var(--blue); }
+    .nav .button { min-height: 42px; padding: 0 18px; }
+
+    .hero { position: relative; overflow: hidden; padding: 104px 0 0; background: linear-gradient(115deg, #f5f9fc 0%, #fff 65%); }
+    .hero::after { content: ""; position: absolute; right: -13vw; top: -19vw; width: 52vw; height: 52vw; border: 1px solid rgba(37, 99, 201, .12); border-radius: 50%; box-shadow: 0 0 0 48px rgba(37, 99, 201, .035), 0 0 0 96px rgba(37, 99, 201, .025); }
+    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.05fr .95fr; gap: 70px; align-items: center; min-height: 525px; }
+    .hero h1 { max-width: 670px; margin: 19px 0 22px; font-family: "Manrope", sans-serif; font-size: clamp(2.65rem, 5vw, 4.55rem); font-weight: 700; letter-spacing: -.055em; line-height: 1.06; }
+    .hero h1 em { color: var(--blue); font-style: normal; }
+    .hero p { max-width: 615px; margin: 0 0 30px; color: #53647c; font-size: 1.04rem; line-height: 1.75; }
+    .hero-buttons { display: flex; gap: 14px; align-items: center; }
+    .hero-link { padding: 15px 5px; color: var(--ink-light); font-size: .86rem; font-weight: 700; }
+    .hero-link span { margin-left: 6px; color: var(--blue); }
+    .hero-panel { position: relative; width: 100%; max-width: 390px; justify-self: end; padding: 31px; background: var(--ink); color: white; box-shadow: 22px 22px 0 rgba(37, 99, 201, .11); }
+    .hero-panel::before { content: ""; position: absolute; top: -12px; right: 28px; width: 62px; height: 4px; background: var(--lime); }
+    .panel-label { color: #a9c5fa; font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+    .hero-panel h2 { margin: 19px 0 24px; font-family: "Manrope", sans-serif; font-size: 1.78rem; line-height: 1.24; letter-spacing: -.035em; }
+    .panel-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid rgba(255,255,255,.16); }
+    .panel-list li { display: flex; justify-content: space-between; padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,.16); color: #dce8fb; font-size: .84rem; }
+    .panel-list span { color: var(--aqua); font-weight: 700; }
+    .outcome-bar { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(5, 1fr); margin-top: 87px; border: 1px solid var(--line); background: white; }
+    .outcome { padding: 20px 18px; border-right: 1px solid var(--line); text-align: center; font-family: "Manrope", sans-serif; font-size: .73rem; font-weight: 800; letter-spacing: .035em; text-transform: uppercase; }
+    .outcome:last-child { border: 0; }.outcome:nth-child(1){ color: #67943a }.outcome:nth-child(2){ color: #2965bd }.outcome:nth-child(3){ color: #6642a2 }.outcome:nth-child(4){ color: #bd7f31 }.outcome:nth-child(5){ color: #39859b }
+
+    section { padding: 105px 0; }
+    .section-title { max-width: 720px; margin: 16px 0 14px; font-family: "Manrope", sans-serif; font-size: clamp(2rem, 3.6vw, 3.15rem); line-height: 1.14; letter-spacing: -.05em; }
+    .section-intro { max-width: 650px; margin: 0; color: var(--muted); font-size: 1rem; line-height: 1.75; }
+    .services { background: var(--mist); }
+    .service-header { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 49px; }
+    .service-header .section-intro { max-width: 430px; }
+    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; }
+    .service-card { min-height: 279px; padding: 28px; background: #fff; border: 1px solid #e4ebf0; transition: .2s ease; }
+    .service-card:hover { border-color: var(--blue); box-shadow: 0 12px 29px rgba(20, 50, 90, .09); transform: translateY(-4px); }
+    .service-num { display: block; margin-bottom: 50px; color: #9aacbd; font-family: "Manrope", sans-serif; font-size: .75rem; font-weight: 800; letter-spacing: .1em; }
+    .service-card h3 { margin: 0 0 12px; font-family: "Manrope", sans-serif; font-size: 1.23rem; letter-spacing: -.03em; }
+    .service-card p { margin: 0; color: #65748a; font-size: .87rem; line-height: 1.67; }
+
+    .ecosystem { overflow: hidden; }
+    .ecosystem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 95px; align-items: center; }
+    .stakeholder-list { display: grid; grid-template-columns: 1fr 1fr; margin-top: 35px; border-top: 1px solid var(--line); }
+    .stakeholder-list div { padding: 15px 4px 15px 0; border-bottom: 1px solid var(--line); color: #344760; font-size: .91rem; }
+    .stakeholder-list div::before { content: "—"; margin-right: 10px; color: var(--blue); font-weight: 700; }
+    .ecosystem-art { position: relative; min-height: 410px; background: #eaf3f9; }
+    .ecosystem-art::before, .ecosystem-art::after { content: ""; position: absolute; border-radius: 50%; }
+    .ecosystem-art::before { top: 58px; left: 51px; width: 290px; height: 290px; border: 1px solid #92b9df; }
+    .ecosystem-art::after { top: 102px; left: 95px; width: 202px; height: 202px; background: var(--blue); box-shadow: 0 0 0 19px rgba(37,99,201,.13); }
+    .art-center { position: absolute; z-index: 1; top: 164px; left: 126px; width: 140px; color: white; font-family: "Manrope", sans-serif; font-size: 1.03rem; font-weight: 800; line-height: 1.25; text-align: center; }
+    .art-node { position: absolute; z-index: 2; padding: 10px 13px; background: white; box-shadow: 0 5px 16px rgba(24,63,107,.09); color: var(--ink); font-size: .71rem; font-weight: 700; }
+    .node-one { top: 26px; left: 26px; }.node-two { top: 32px; right: 20px; }.node-three { right: -5px; bottom: 83px; }.node-four { bottom: 14px; left: 35px; }
+
+    .future { position: relative; padding: 102px 0; overflow: hidden; background: var(--ink); color: white; }
+    .future::before { content: "REEVA"; position: absolute; right: -19px; bottom: -72px; color: rgba(255,255,255,.035); font-family: "Manrope", sans-serif; font-size: 13rem; font-weight: 800; letter-spacing: -.1em; }
+    .future-grid { position: relative; z-index: 1; display: grid; grid-template-columns: .9fr 1.1fr; gap: 100px; align-items: start; }
+    .future .eyebrow { color: #8cb9ff; }.future h2 { margin: 17px 0; font-family: "Manrope", sans-serif; font-size: clamp(2.15rem, 3.7vw, 3.3rem); line-height: 1.12; letter-spacing: -.05em; }.future p { margin: 0; color: #bdcbe0; line-height: 1.78; }
+    .future-copy { display: grid; gap: 22px; padding-top: 9px; }
+    .future .button { align-self: start; margin-top: 10px; background: white; color: var(--ink); }.future .button:hover { background: #cfe1ff; }
+    .contact { padding: 75px 0; background: #f2f7fa; }
+    .contact-inner { display: flex; align-items: center; justify-content: space-between; gap: 35px; }
+    .contact h2 { max-width: 660px; margin: 12px 0 0; font-family: "Manrope", sans-serif; font-size: clamp(1.9rem, 3vw, 2.7rem); letter-spacing: -.05em; line-height: 1.17; }
+    footer { padding: 28px 0; background: var(--ink); color: #a9b8ce; font-size: .75rem; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; }.footer-inner strong { color: white; letter-spacing: .1em; }
+
+    @media (max-width: 850px) {
+      .nav-links { display: none; }.hero { padding-top: 72px; }.hero-grid, .ecosystem-grid, .future-grid { grid-template-columns: 1fr; gap: 45px; }.hero-panel { justify-self: start; }.outcome-bar { margin-top: 58px; }.service-grid { grid-template-columns: 1fr 1fr; }.ecosystem-art { max-width: 490px; width: 100%; }.future-grid { gap: 18px; }
+    }
+    @media (max-width: 560px) {
+      .container { width: min(100% - 32px, 1140px); }.brand-name { font-size: 1.22rem; }.nav .button { display: none; } header { height: 69px; }.hero { padding-top: 58px; }.hero h1 { font-size: 2.55rem; }.hero-buttons { align-items: flex-start; flex-direction: column; }.outcome-bar { grid-template-columns: 1fr; }.outcome { border-right: 0; border-bottom: 1px solid var(--line); }.outcome:last-child { border-bottom: 0; }.service-header, .contact-inner { align-items: start; flex-direction: column; }.service-grid { grid-template-columns: 1fr; }.service-card { min-height: auto; }.service-num { margin-bottom: 29px; }.stakeholder-list { grid-template-columns: 1fr; }.ecosystem-art { min-height: 365px; transform: scale(.89); transform-origin: left top; margin-bottom: -40px; }.contact { padding: 60px 0; }.footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#" class="brand" aria-label="REEVA home">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span class="brand-name">REEVA<small>NETWORK</small></span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#services">Services</a><a href="#ecosystem">Who We Support</a><a href="#platform">The Platform</a>
+      </nav>
+      <a class="button" href="#contact">Request a Consultation <span class="button-arrow">→</span></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Personal injury, better connected</div>
+          <h1>Intelligent, evidence-based support for <em>personal injury.</em></h1>
+          <p>REEVA is building a connected personal-injury platform designed to improve clinical visibility, strengthen medical evidence, coordinate care, and create greater accountability throughout the life of a case.</p>
+          <div class="hero-buttons"><a class="button" href="#contact">Request a Consultation <span class="button-arrow">→</span></a><a class="hero-link" href="#services">Explore services <span>↓</span></a></div>
+        </div>
+        <aside class="hero-panel">
+          <div class="panel-label">Available now</div>
+          <h2>Clinical &amp; medical-legal services for the cases you support today.</h2>
+          <ul class="panel-list"><li>Initial nurse assessment <span>01</span></li><li>Care coordination <span>02</span></li><li>Medical-legal insight <span>03</span></li></ul>
+        </aside>
+      </div>
+      <div class="container outcome-bar" aria-label="REEVA values">
+        <div class="outcome">Risk Reduction</div><div class="outcome">Early Insight</div><div class="outcome">Visibility</div><div class="outcome">Verification</div><div class="outcome">Accountability</div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="container">
+        <div class="service-header">
+          <div><div class="eyebrow">Available now</div><h2 class="section-title">The clinical foundation every case deserves.</h2></div>
+          <p class="section-intro">Our experienced nurses and medical-legal professionals deliver structured support at every stage of the patient journey.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card"><span class="service-num">01 — CINA™</span><h3>Comprehensive Initial Nurse Assessment</h3><p>A structured, head-to-toe assessment capturing condition, relevant history, functional limitations, medications, recovery barriers, and accident-related concerns.</p></article>
+          <article class="service-card"><span class="service-num">02</span><h3>Nurse Case Management</h3><p>Ongoing clinical coordination and patient support that monitors progress, identifies barriers, supports adherence, and keeps recovery moving forward.</p></article>
+          <article class="service-card"><span class="service-num">03</span><h3>Legal Nurse Consulting</h3><p>Medical-legal analysis that translates complex medical information into clear, actionable insight for personal-injury cases.</p></article>
+          <article class="service-card"><span class="service-num">04</span><h3>Medical Record Review</h3><p>Structured review to identify clinical facts, treatment progression, missing documentation, inconsistencies, causation issues, and medical necessity concerns.</p></article>
+          <article class="service-card"><span class="service-num">05</span><h3>Life Care Planning Support</h3><p>Clinical collaboration and longitudinal record development for more complete future-care analysis and evaluation of long-term needs.</p></article>
+          <article class="service-card"><span class="service-num">06</span><h3>Evidence-Based Perspective</h3><p>Clinical insight that strengthens documentation, informs care decisions, and supports a more accountable experience for every stakeholder.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ecosystem" id="ecosystem">
+      <div class="container ecosystem-grid">
+        <div>
+          <div class="eyebrow">Built for the ecosystem</div>
+          <h2 class="section-title">The right information, connected around the patient.</h2>
+          <p class="section-intro">REEVA supports the people and organizations working together to protect outcomes after an injury.</p>
+          <div class="stakeholder-list">
+            <div>Personal-injury attorneys</div><div>Primary care providers</div><div>Chiropractors &amp; specialists</div><div>Medical funding organizations</div><div>Life care planners</div><div>Legal nurse consultants</div><div>Nurse case managers</div><div>Injured patients &amp; families</div>
+          </div>
+        </div>
+        <div class="ecosystem-art" aria-label="Connected personal injury care ecosystem">
+          <div class="art-center">A more connected<br>case journey</div>
+          <div class="art-node node-one">Clinical care</div><div class="art-node node-two">Medical records</div><div class="art-node node-three">Legal teams</div><div class="art-node node-four">Patient support</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="future" id="platform">
+      <div class="container future-grid">
+        <div><div class="eyebrow">A better way is being built</div><h2>Infrastructure for the entire life of a case.</h2></div>
+        <div class="future-copy">
+          <p>Personal-injury cases are often managed through disconnected offices, delayed records, manual follow-up, fragmented communication, and limited clinical visibility. REEVA is building the infrastructure to connect those moving parts.</p>
+          <p>The REEVA platform will bring together clinical oversight, appointments, medical records, case timelines, patient navigation, evidence-based review, treatment verification, utilization review, and stakeholder communication within one coordinated environment.</p>
+          <a class="button" href="#contact">Speak With REEVA <span class="button-arrow">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container contact-inner">
+        <div><div class="eyebrow">Platform in development</div><h2>Our clinical and medical-legal teams are ready to support cases today.</h2></div>
+        <a class="button" href="mailto:hello@reevanetwork.com">Request a Consultation <span class="button-arrow">→</span></a>
+      </div>
+    </section>
+  </main>
+  <footer><div class="container footer-inner"><span><strong>REEVA</strong> — Protecting Outcomes.</span><span>© 2026 REEVA Network. All rights reserved.</span></div></footer>
+</body>
+</html>
