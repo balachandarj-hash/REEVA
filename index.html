@@ -33,11 +33,12 @@
     .button:hover { background: var(--ink); transform: translateY(-2px); }
     .button-arrow { font-size: 1.15rem; line-height: 1; }
 
-    header { height: 96px; display: flex; align-items: center; border-bottom: 1px solid rgba(6, 26, 59, .09); }
-    .nav { display: flex; align-items: center; justify-content: space-between; width: 100%; gap: 20px; }
-    .brand { display: inline-flex; align-items: center; flex-shrink: 0; }
-    .brand-logo { display: block; height: 68px; width: auto; max-width: min(340px, 48vw); object-fit: contain; }
-    .nav-links { display: flex; align-items: center; gap: 31px; color: #32435e; font-size: .82rem; font-weight: 600; }
+    header { padding: 22px 0 18px; border-bottom: 1px solid rgba(6, 26, 59, .09); }
+    .nav { display: flex; flex-direction: column; align-items: center; width: 100%; gap: 16px; }
+    .brand { display: inline-flex; align-items: center; justify-content: center; }
+    .brand-logo { display: block; height: 110px; width: auto; max-width: min(560px, 92vw); object-fit: contain; }
+    .nav-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 18px 28px; }
+    .nav-links { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 18px 28px; color: #32435e; font-size: .82rem; font-weight: 600; }
     .nav-links a:hover { color: var(--blue); }
     .nav .button { min-height: 42px; padding: 0 18px; }
 
@@ -135,10 +136,10 @@
     .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; }.footer-inner strong { color: white; letter-spacing: .1em; }
 
     @media (max-width: 850px) {
-      .nav-links { display: none; }.hero { padding-top: 72px; padding-bottom: 72px; min-height: 0; }.hero-grid, .ecosystem-grid, .future-grid, .contact-grid { grid-template-columns: 1fr; gap: 45px; }.hero-panel { justify-self: start; }.service-grid { grid-template-columns: 1fr 1fr; }.ecosystem-art { max-width: 490px; width: 100%; }.future-grid { gap: 18px; }
+      .nav-links { gap: 14px 20px; }.hero { padding-top: 72px; padding-bottom: 72px; min-height: 0; }.hero-grid, .ecosystem-grid, .future-grid, .contact-grid { grid-template-columns: 1fr; gap: 45px; }.hero-panel { justify-self: start; }.service-grid { grid-template-columns: 1fr 1fr; }.ecosystem-art { max-width: 490px; width: 100%; }.future-grid { gap: 18px; }
     }
     @media (max-width: 560px) {
-      .container { width: min(100% - 32px, 1140px); }.brand-logo { height: 48px; max-width: 72vw; }.nav .button { display: none; } header { height: 76px; }.hero { padding-top: 58px; padding-bottom: 58px; }.hero-media::after { background: linear-gradient(180deg, rgba(248, 251, 253, .96) 0%, rgba(248, 251, 253, .9) 55%, rgba(248, 251, 253, .72) 100%); }.hero h1 { font-size: 2.55rem; }.hero-buttons { align-items: flex-start; flex-direction: column; }.service-header { align-items: start; flex-direction: column; }.service-grid { grid-template-columns: 1fr; }.service-card { min-height: auto; }.service-num { margin-bottom: 29px; }.stakeholder-list { grid-template-columns: 1fr; }.ecosystem-art { min-height: 365px; transform: scale(.89); transform-origin: left top; margin-bottom: -40px; }.contact { padding: 70px 0; }.footer-inner { align-items: flex-start; flex-direction: column; }
+      .container { width: min(100% - 32px, 1140px); }.brand-logo { height: 84px; max-width: 94vw; }.nav { gap: 12px; }.nav .button { width: 100%; }.hero { padding-top: 58px; padding-bottom: 58px; }.hero-media::after { background: linear-gradient(180deg, rgba(248, 251, 253, .96) 0%, rgba(248, 251, 253, .9) 55%, rgba(248, 251, 253, .72) 100%); }.hero h1 { font-size: 2.55rem; }.hero-buttons { align-items: flex-start; flex-direction: column; }.service-header { align-items: start; flex-direction: column; }.service-grid { grid-template-columns: 1fr; }.service-card { min-height: auto; }.service-num { margin-bottom: 29px; }.stakeholder-list { grid-template-columns: 1fr; }.ecosystem-art { min-height: 365px; transform: scale(.89); transform-origin: left top; margin-bottom: -40px; }.contact { padding: 70px 0; }.footer-inner { align-items: flex-start; flex-direction: column; }
     }
   </style>
 </head>
@@ -148,10 +149,12 @@
       <a href="index.html" class="brand" aria-label="REVVA home">
         <img class="brand-logo" src="assets/revva-logo.png" alt="REVVA Network" />
       </a>
-      <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#services">Services</a><a href="#ecosystem">Who We Support</a><a href="#platform">The Platform</a><a href="contact.html">Contact</a>
-      </nav>
-      <a class="button" href="contact.html#inquiry-form">Request a Consultation <span class="button-arrow">→</span></a>
+      <div class="nav-bar">
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="#services">Services</a><a href="#ecosystem">Who We Support</a><a href="#platform">The Platform</a><a href="contact.html">Contact</a>
+        </nav>
+        <a class="button" href="contact.html#inquiry-form">Request a Consultation <span class="button-arrow">→</span></a>
+      </div>
     </div>
   </header>
 
