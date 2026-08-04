@@ -57,9 +57,7 @@
     .panel-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid rgba(255,255,255,.16); }
     .panel-list li { display: flex; justify-content: space-between; padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,.16); color: #dce8fb; font-size: .84rem; }
     .panel-list span { color: var(--aqua); font-weight: 700; }
-    .outcome-bar { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(5, 1fr); margin-top: 87px; border: 1px solid var(--line); background: white; }
-    .outcome { padding: 20px 18px; border-right: 1px solid var(--line); text-align: center; font-family: "Manrope", sans-serif; font-size: .73rem; font-weight: 800; letter-spacing: .035em; text-transform: uppercase; }
-    .outcome:last-child { border: 0; }.outcome:nth-child(1){ color: #67943a }.outcome:nth-child(2){ color: #2965bd }.outcome:nth-child(3){ color: #6642a2 }.outcome:nth-child(4){ color: #bd7f31 }.outcome:nth-child(5){ color: #39859b }
+    .hero { padding-bottom: 96px; }
 
     section { padding: 105px 0; }
     .section-title { max-width: 720px; margin: 16px 0 14px; font-family: "Manrope", sans-serif; font-size: clamp(2rem, 3.6vw, 3.15rem); line-height: 1.14; letter-spacing: -.05em; }
@@ -100,10 +98,10 @@
     .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; }.footer-inner strong { color: white; letter-spacing: .1em; }
 
     @media (max-width: 850px) {
-      .nav-links { display: none; }.hero { padding-top: 72px; }.hero-grid, .ecosystem-grid, .future-grid { grid-template-columns: 1fr; gap: 45px; }.hero-panel { justify-self: start; }.outcome-bar { margin-top: 58px; }.service-grid { grid-template-columns: 1fr 1fr; }.ecosystem-art { max-width: 490px; width: 100%; }.future-grid { gap: 18px; }
+      .nav-links { display: none; }.hero { padding-top: 72px; padding-bottom: 72px; }.hero-grid, .ecosystem-grid, .future-grid { grid-template-columns: 1fr; gap: 45px; }.hero-panel { justify-self: start; }.service-grid { grid-template-columns: 1fr 1fr; }.ecosystem-art { max-width: 490px; width: 100%; }.future-grid { gap: 18px; }
     }
     @media (max-width: 560px) {
-      .container { width: min(100% - 32px, 1140px); }.brand-logo { height: 48px; max-width: 72vw; }.nav .button { display: none; } header { height: 76px; }.hero { padding-top: 58px; }.hero h1 { font-size: 2.55rem; }.hero-buttons { align-items: flex-start; flex-direction: column; }.outcome-bar { grid-template-columns: 1fr; }.outcome { border-right: 0; border-bottom: 1px solid var(--line); }.outcome:last-child { border-bottom: 0; }.service-header, .contact-inner { align-items: start; flex-direction: column; }.service-grid { grid-template-columns: 1fr; }.service-card { min-height: auto; }.service-num { margin-bottom: 29px; }.stakeholder-list { grid-template-columns: 1fr; }.ecosystem-art { min-height: 365px; transform: scale(.89); transform-origin: left top; margin-bottom: -40px; }.contact { padding: 60px 0; }.footer-inner { align-items: flex-start; flex-direction: column; }
+      .container { width: min(100% - 32px, 1140px); }.brand-logo { height: 48px; max-width: 72vw; }.nav .button { display: none; } header { height: 76px; }.hero { padding-top: 58px; padding-bottom: 58px; }.hero h1 { font-size: 2.55rem; }.hero-buttons { align-items: flex-start; flex-direction: column; }.service-header, .contact-inner { align-items: start; flex-direction: column; }.service-grid { grid-template-columns: 1fr; }.service-card { min-height: auto; }.service-num { margin-bottom: 29px; }.stakeholder-list { grid-template-columns: 1fr; }.ecosystem-art { min-height: 365px; transform: scale(.89); transform-origin: left top; margin-bottom: -40px; }.contact { padding: 60px 0; }.footer-inner { align-items: flex-start; flex-direction: column; }
     }
   </style>
 </head>
@@ -134,9 +132,6 @@
           <h2>Clinical &amp; medical-legal services for the cases you support today.</h2>
           <ul class="panel-list"><li>Initial nurse assessment <span>01</span></li><li>Care coordination <span>02</span></li><li>Medical-legal insight <span>03</span></li></ul>
         </aside>
-      </div>
-      <div class="container outcome-bar" aria-label="REVVA values">
-        <div class="outcome">Risk Reduction</div><div class="outcome">Early Insight</div><div class="outcome">Visibility</div><div class="outcome">Verification</div><div class="outcome">Accountability</div>
       </div>
     </section>
 
