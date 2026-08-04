@@ -91,17 +91,30 @@
     .future .eyebrow { color: #8cb9ff; }.future h2 { margin: 17px 0; font-family: "Manrope", sans-serif; font-size: clamp(2.15rem, 3.7vw, 3.3rem); line-height: 1.12; letter-spacing: -.05em; }.future p { margin: 0; color: #bdcbe0; line-height: 1.78; }
     .future-copy { display: grid; gap: 22px; padding-top: 9px; }
     .future .button { align-self: start; margin-top: 10px; background: white; color: var(--ink); }.future .button:hover { background: #cfe1ff; }
-    .contact { padding: 75px 0; background: #f2f7fa; }
-    .contact-inner { display: flex; align-items: center; justify-content: space-between; gap: 35px; }
-    .contact h2 { max-width: 660px; margin: 12px 0 0; font-family: "Manrope", sans-serif; font-size: clamp(1.9rem, 3vw, 2.7rem); letter-spacing: -.05em; line-height: 1.17; }
+    .contact { padding: 105px 0; background: #f2f7fa; }
+    .contact-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 70px; align-items: start; }
+    .contact h2 { margin: 12px 0 16px; font-family: "Manrope", sans-serif; font-size: clamp(1.9rem, 3vw, 2.7rem); letter-spacing: -.05em; line-height: 1.17; }
+    .contact-copy { margin: 0 0 28px; max-width: 520px; color: var(--muted); line-height: 1.75; }
+    .contact-details { display: grid; gap: 18px; margin: 0; padding: 0; list-style: none; }
+    .contact-details li { display: grid; gap: 4px; padding: 18px 0; border-top: 1px solid var(--line); }
+    .contact-details li:last-child { border-bottom: 1px solid var(--line); }
+    .contact-details span { color: #8a96a8; font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+    .contact-details a, .contact-details address { color: var(--ink); font-style: normal; font-size: 1.05rem; font-weight: 600; line-height: 1.55; }
+    .contact-details a:hover { color: var(--blue); }
+    .contact-panel { padding: 32px; background: var(--ink); color: white; }
+    .contact-panel .panel-label { color: #a9c5fa; font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+    .contact-panel h3 { margin: 16px 0 14px; font-family: "Manrope", sans-serif; font-size: 1.55rem; letter-spacing: -.03em; line-height: 1.25; }
+    .contact-panel p { margin: 0 0 28px; color: #bdcbe0; line-height: 1.7; }
+    .contact-panel .button { background: white; color: var(--ink); }
+    .contact-panel .button:hover { background: #cfe1ff; }
     footer { padding: 28px 0; background: var(--ink); color: #a9b8ce; font-size: .75rem; }
     .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; }.footer-inner strong { color: white; letter-spacing: .1em; }
 
     @media (max-width: 850px) {
-      .nav-links { display: none; }.hero { padding-top: 72px; padding-bottom: 72px; }.hero-grid, .ecosystem-grid, .future-grid { grid-template-columns: 1fr; gap: 45px; }.hero-panel { justify-self: start; }.service-grid { grid-template-columns: 1fr 1fr; }.ecosystem-art { max-width: 490px; width: 100%; }.future-grid { gap: 18px; }
+      .nav-links { display: none; }.hero { padding-top: 72px; padding-bottom: 72px; }.hero-grid, .ecosystem-grid, .future-grid, .contact-grid { grid-template-columns: 1fr; gap: 45px; }.hero-panel { justify-self: start; }.service-grid { grid-template-columns: 1fr 1fr; }.ecosystem-art { max-width: 490px; width: 100%; }.future-grid { gap: 18px; }
     }
     @media (max-width: 560px) {
-      .container { width: min(100% - 32px, 1140px); }.brand-logo { height: 48px; max-width: 72vw; }.nav .button { display: none; } header { height: 76px; }.hero { padding-top: 58px; padding-bottom: 58px; }.hero h1 { font-size: 2.55rem; }.hero-buttons { align-items: flex-start; flex-direction: column; }.service-header, .contact-inner { align-items: start; flex-direction: column; }.service-grid { grid-template-columns: 1fr; }.service-card { min-height: auto; }.service-num { margin-bottom: 29px; }.stakeholder-list { grid-template-columns: 1fr; }.ecosystem-art { min-height: 365px; transform: scale(.89); transform-origin: left top; margin-bottom: -40px; }.contact { padding: 60px 0; }.footer-inner { align-items: flex-start; flex-direction: column; }
+      .container { width: min(100% - 32px, 1140px); }.brand-logo { height: 48px; max-width: 72vw; }.nav .button { display: none; } header { height: 76px; }.hero { padding-top: 58px; padding-bottom: 58px; }.hero h1 { font-size: 2.55rem; }.hero-buttons { align-items: flex-start; flex-direction: column; }.service-header { align-items: start; flex-direction: column; }.service-grid { grid-template-columns: 1fr; }.service-card { min-height: auto; }.service-num { margin-bottom: 29px; }.stakeholder-list { grid-template-columns: 1fr; }.ecosystem-art { min-height: 365px; transform: scale(.89); transform-origin: left top; margin-bottom: -40px; }.contact { padding: 70px 0; }.footer-inner { align-items: flex-start; flex-direction: column; }
     }
   </style>
 </head>
@@ -112,7 +125,7 @@
         <img class="brand-logo" src="assets/revva-logo.png" alt="REVVA Network" />
       </a>
       <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#services">Services</a><a href="#ecosystem">Who We Support</a><a href="#platform">The Platform</a>
+        <a href="#services">Services</a><a href="#ecosystem">Who We Support</a><a href="#platform">The Platform</a><a href="#contact">Contact</a>
       </nav>
       <a class="button" href="#contact">Request a Consultation <span class="button-arrow">→</span></a>
     </div>
@@ -181,9 +194,32 @@
     </section>
 
     <section class="contact" id="contact">
-      <div class="container contact-inner">
-        <div><div class="eyebrow">Platform in development</div><h2>Our clinical and medical-legal teams are ready to support cases today.</h2></div>
-        <a class="button" href="mailto:hello@reevanetwork.com">Request a Consultation <span class="button-arrow">→</span></a>
+      <div class="container contact-grid">
+        <div>
+          <div class="eyebrow">Contact us</div>
+          <h2>Reach the REVVA team.</h2>
+          <p class="contact-copy">For consultations, partnerships, or case referrals, contact our clinical and medical-legal team.</p>
+          <ul class="contact-details">
+            <li>
+              <span>Email</span>
+              <a href="mailto:info@revvanetwork.com">info@revvanetwork.com</a>
+            </li>
+            <li>
+              <span>Phone</span>
+              <a href="tel:+18884748473">(888) 474-8473</a>
+            </li>
+            <li>
+              <span>Office</span>
+              <address>2020 Southwest Fwy, Suite 326<br>Houston, TX 77098</address>
+            </li>
+          </ul>
+        </div>
+        <aside class="contact-panel">
+          <div class="panel-label">Ready when you are</div>
+          <h3>Our clinical and medical-legal teams are available to support cases today.</h3>
+          <p>Share a case, request a consultation, or explore how REVVA can strengthen clinical visibility and medical evidence.</p>
+          <a class="button" href="mailto:info@revvanetwork.com">Request a Consultation <span class="button-arrow">→</span></a>
+        </aside>
       </div>
     </section>
   </main>
