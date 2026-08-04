@@ -26,11 +26,39 @@
     .button:hover { background: var(--ink); transform: translateY(-2px); }
     .button-arrow { font-size: 1.15rem; line-height: 1; }
 
-    header { padding: 22px 0 18px; border-bottom: 1px solid rgba(6, 26, 59, .09); }
+    header { padding: 22px 0 18px; border-bottom: 1px solid rgba(6, 26, 59, .09); position: relative; z-index: 50; }
     .nav { display: flex; flex-direction: column; align-items: center; width: 100%; gap: 16px; }
+    .nav-top { position: relative; display: flex; align-items: center; justify-content: center; width: 100%; }
     .brand { display: inline-flex; align-items: center; justify-content: center; }
     .brand-logo { display: block; height: 110px; width: auto; max-width: min(560px, 92vw); object-fit: contain; }
-    .nav-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 18px 28px; }
+    .menu-toggle {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      border: 1px solid var(--line);
+      background: white;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .menu-toggle span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: var(--ink);
+      transition: .2s ease;
+    }
+    .menu-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .menu-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 18px 28px; width: 100%; }
     .nav-links { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 18px 28px; color: #32435e; font-size: .82rem; font-weight: 600; }
     .nav-links a:hover, .nav-links a.active { color: var(--blue); }
     .nav .button { min-height: 42px; padding: 0 18px; }
@@ -100,14 +128,37 @@
     .footer-inner strong { color: white; letter-spacing: .1em; }
 
     @media (max-width: 850px) {
-      .nav-links { gap: 14px 20px; }
+      .menu-toggle { display: inline-flex; }
+      .nav { gap: 0; align-items: stretch; }
+      .nav-bar {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        margin-top: 16px;
+        padding: 8px 0 4px;
+        border-top: 1px solid var(--line);
+      }
+      .nav-bar.is-open { display: flex; }
+      .nav-links {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        width: 100%;
+      }
+      .nav-links a {
+        display: block;
+        padding: 14px 4px;
+        border-bottom: 1px solid var(--line);
+        text-align: left;
+      }
+      .nav .button { width: 100%; margin-top: 14px; }
       .contact-grid { grid-template-columns: 1fr; gap: 28px; }
     }
     @media (max-width: 560px) {
       .container { width: min(100% - 32px, 1140px); }
-      .brand-logo { height: 84px; max-width: 94vw; }
-      .nav { gap: 12px; }
-      .nav .button { width: 100%; }
+      .brand-logo { height: 84px; max-width: calc(94vw - 56px); }
+      .nav { gap: 0; }
       .page-hero { padding: 48px 0 24px; }
       .contact { padding: 24px 0 70px; }
       .form-row { grid-template-columns: 1fr; }
@@ -119,10 +170,15 @@
 <body>
   <header>
     <div class="container nav">
-      <a href="index.html" class="brand" aria-label="REVVA home">
-        <img class="brand-logo" src="assets/revva-logo.png" alt="REVVA Network" />
-      </a>
-      <div class="nav-bar">
+      <div class="nav-top">
+        <a href="index.html" class="brand" aria-label="REVVA home">
+          <img class="brand-logo" src="assets/revva-logo.png" alt="REVVA Network" />
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <div class="nav-bar" id="primary-nav">
         <nav class="nav-links" aria-label="Primary navigation">
           <a href="index.html">Home</a>
           <a href="index.html#services">Services</a>
@@ -220,5 +276,25 @@
       <span>© 2026 REVVA Network. All rights reserved.</span>
     </div>
   </footer>
+  <script>
+    (function () {
+      var toggle = document.querySelector(".menu-toggle");
+      var panel = document.getElementById("primary-nav");
+      if (!toggle || !panel) return;
+      toggle.addEventListener("click", function () {
+        var open = toggle.getAttribute("aria-expanded") === "true";
+        toggle.setAttribute("aria-expanded", String(!open));
+        toggle.setAttribute("aria-label", open ? "Open menu" : "Close menu");
+        panel.classList.toggle("is-open", !open);
+      });
+      panel.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          toggle.setAttribute("aria-expanded", "false");
+          toggle.setAttribute("aria-label", "Open menu");
+          panel.classList.remove("is-open");
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
