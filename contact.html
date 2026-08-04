@@ -12,7 +12,6 @@
     :root {
       --ink: #061a3b;
       --blue: #2563c9;
-      --lime: #8eb84a;
       --line: #dce5eb;
       --muted: #65748a;
       --white: #fff;
@@ -40,19 +39,61 @@
     .page-hero p { max-width: 620px; margin: 0; color: var(--muted); font-size: 1.05rem; line-height: 1.75; }
 
     .contact { padding: 40px 0 105px; background: #f2f7fa; }
-    .contact-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 70px; align-items: start; }
+    .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 48px; align-items: start; }
     .contact-details { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; background: white; border: 1px solid var(--line); }
     .contact-details li { display: grid; gap: 6px; padding: 24px 28px; border-bottom: 1px solid var(--line); }
     .contact-details li:last-child { border-bottom: 0; }
     .contact-details span { color: #8a96a8; font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
-    .contact-details a, .contact-details address { color: var(--ink); font-style: normal; font-size: 1.12rem; font-weight: 600; line-height: 1.55; }
+    .contact-details a, .contact-details address { color: var(--ink); font-style: normal; font-size: 1.05rem; font-weight: 600; line-height: 1.55; }
     .contact-details a:hover { color: var(--blue); }
-    .contact-panel { padding: 36px; background: var(--ink); color: white; }
-    .panel-label { color: #a9c5fa; font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
-    .contact-panel h2 { margin: 16px 0 14px; font-family: "Manrope", sans-serif; font-size: 1.7rem; letter-spacing: -.03em; line-height: 1.25; }
-    .contact-panel p { margin: 0 0 28px; color: #bdcbe0; line-height: 1.7; }
-    .contact-panel .button { background: white; color: var(--ink); }
-    .contact-panel .button:hover { background: #cfe1ff; }
+
+    .contact-form {
+      display: grid;
+      gap: 18px;
+      padding: 32px;
+      background: white;
+      border: 1px solid var(--line);
+    }
+    .contact-form h2 {
+      margin: 0 0 4px;
+      font-family: "Manrope", sans-serif;
+      font-size: 1.45rem;
+      letter-spacing: -.03em;
+    }
+    .form-intro { margin: 0 0 8px; color: var(--muted); font-size: .92rem; line-height: 1.6; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .field { display: grid; gap: 8px; }
+    .field label { color: #4d5d73; font-size: .78rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid #cfd9e3;
+      background: #fbfcfd;
+      color: var(--ink);
+      font: inherit;
+      font-size: .95rem;
+      outline: none;
+      transition: border-color .15s ease, box-shadow .15s ease;
+    }
+    .field select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23061a3b' d='M1.4 0.6 6 5.2 10.6.6 12 2 6 8 0 2z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 40px;
+    }
+    .field textarea { min-height: 140px; resize: vertical; }
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(37, 99, 201, .12);
+      background: white;
+    }
+    .contact-form .button { justify-self: start; margin-top: 4px; border: 0; }
+    .form-note { margin: 0; color: #8a96a8; font-size: .8rem; line-height: 1.5; }
 
     footer { padding: 28px 0; background: var(--ink); color: #a9b8ce; font-size: .75rem; }
     .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
@@ -69,6 +110,8 @@
       header { height: 76px; }
       .page-hero { padding: 48px 0 24px; }
       .contact { padding: 24px 0 70px; }
+      .form-row { grid-template-columns: 1fr; }
+      .contact-form { padding: 22px; }
       .footer-inner { align-items: flex-start; flex-direction: column; }
     }
   </style>
@@ -85,7 +128,7 @@
         <a href="index.html#platform">The Platform</a>
         <a class="active" href="contact.html">Contact</a>
       </nav>
-      <a class="button" href="mailto:info@revvanetwork.com">Request a Consultation <span class="button-arrow">→</span></a>
+      <a class="button" href="#inquiry-form">Request a Consultation <span class="button-arrow">→</span></a>
     </div>
   </header>
 
@@ -114,12 +157,56 @@
             <address>2020 Southwest Fwy, Suite 326<br>Houston, TX 77098</address>
           </li>
         </ul>
-        <aside class="contact-panel">
-          <div class="panel-label">Ready when you are</div>
-          <h2>Our clinical and medical-legal teams are available to support cases today.</h2>
-          <p>Share a case, request a consultation, or explore how REVVA can strengthen clinical visibility and medical evidence.</p>
-          <a class="button" href="mailto:info@revvanetwork.com">Email REVVA <span class="button-arrow">→</span></a>
-        </aside>
+
+        <form
+          id="inquiry-form"
+          class="contact-form"
+          action="https://formsubmit.co/info@revvanetwork.com"
+          method="POST"
+        >
+          <h2>Send a message</h2>
+          <p class="form-intro">Tell us who you are and how we can help. We will follow up as soon as possible.</p>
+
+          <input type="hidden" name="_subject" value="New REVVA website inquiry" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Full name</label>
+              <input id="name" name="name" type="text" required autocomplete="name" placeholder="Your name" />
+            </div>
+            <div class="field">
+              <label for="role">I am a</label>
+              <select id="role" name="role" required>
+                <option value="" disabled selected>Select one</option>
+                <option value="Patient">Patient</option>
+                <option value="Provider">Provider</option>
+                <option value="Attorney">Attorney</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" />
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(555) 555-5555" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required placeholder="How can REVVA help?"></textarea>
+          </div>
+
+          <button class="button" type="submit">Submit inquiry <span class="button-arrow">→</span></button>
+          <p class="form-note">Submissions are sent to info@revvanetwork.com.</p>
+        </form>
       </div>
     </section>
   </main>
