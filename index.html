@@ -41,8 +41,33 @@
     .nav-links a:hover { color: var(--blue); }
     .nav .button { min-height: 42px; padding: 0 18px; }
 
-    .hero { position: relative; overflow: hidden; padding: 104px 0 0; background: linear-gradient(115deg, #f5f9fc 0%, #fff 65%); }
-    .hero::after { content: ""; position: absolute; right: -13vw; top: -19vw; width: 52vw; height: 52vw; border: 1px solid rgba(37, 99, 201, .12); border-radius: 50%; box-shadow: 0 0 0 48px rgba(37, 99, 201, .035), 0 0 0 96px rgba(37, 99, 201, .025); }
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 640px;
+      padding: 104px 0 96px;
+      background: #0a1f42;
+    }
+    .hero-media {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .hero-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(248, 251, 253, .97) 0%, rgba(248, 251, 253, .92) 38%, rgba(248, 251, 253, .55) 58%, rgba(6, 26, 59, .18) 100%),
+        linear-gradient(180deg, rgba(248, 251, 253, .35) 0%, transparent 28%, transparent 72%, rgba(6, 26, 59, .2) 100%);
+    }
     .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.05fr .95fr; gap: 70px; align-items: center; min-height: 525px; }
     .hero h1 { max-width: 670px; margin: 19px 0 22px; font-family: "Manrope", sans-serif; font-size: clamp(2.65rem, 5vw, 4.55rem); font-weight: 700; letter-spacing: -.055em; line-height: 1.06; }
     .hero h1 em { color: var(--blue); font-style: normal; }
@@ -50,14 +75,13 @@
     .hero-buttons { display: flex; gap: 14px; align-items: center; }
     .hero-link { padding: 15px 5px; color: var(--ink-light); font-size: .86rem; font-weight: 700; }
     .hero-link span { margin-left: 6px; color: var(--blue); }
-    .hero-panel { position: relative; width: 100%; max-width: 390px; justify-self: end; padding: 31px; background: var(--ink); color: white; box-shadow: 22px 22px 0 rgba(37, 99, 201, .11); }
+    .hero-panel { position: relative; width: 100%; max-width: 390px; justify-self: end; padding: 31px; background: rgba(6, 26, 59, .92); color: white; backdrop-filter: blur(6px); }
     .hero-panel::before { content: ""; position: absolute; top: -12px; right: 28px; width: 62px; height: 4px; background: var(--lime); }
     .panel-label { color: #a9c5fa; font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
     .hero-panel h2 { margin: 19px 0 24px; font-family: "Manrope", sans-serif; font-size: 1.78rem; line-height: 1.24; letter-spacing: -.035em; }
     .panel-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid rgba(255,255,255,.16); }
     .panel-list li { display: flex; justify-content: space-between; padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,.16); color: #dce8fb; font-size: .84rem; }
     .panel-list span { color: var(--aqua); font-weight: 700; }
-    .hero { padding-bottom: 96px; }
 
     section { padding: 105px 0; }
     .section-title { max-width: 720px; margin: 16px 0 14px; font-family: "Manrope", sans-serif; font-size: clamp(2rem, 3.6vw, 3.15rem); line-height: 1.14; letter-spacing: -.05em; }
@@ -66,11 +90,11 @@
     .service-header { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 49px; }
     .service-header .section-intro { max-width: 430px; }
     .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; }
-    .service-card { min-height: 279px; padding: 28px; background: #fff; border: 1px solid #e4ebf0; transition: .2s ease; }
+    .service-card { min-height: auto; padding: 26px; background: #fff; border: 1px solid #e4ebf0; transition: .2s ease; }
     .service-card:hover { border-color: var(--blue); box-shadow: 0 12px 29px rgba(20, 50, 90, .09); transform: translateY(-4px); }
-    .service-num { display: block; margin-bottom: 50px; color: #9aacbd; font-family: "Manrope", sans-serif; font-size: .75rem; font-weight: 800; letter-spacing: .1em; }
-    .service-card h3 { margin: 0 0 12px; font-family: "Manrope", sans-serif; font-size: 1.23rem; letter-spacing: -.03em; }
-    .service-card p { margin: 0; color: #65748a; font-size: .87rem; line-height: 1.67; }
+    .service-num { display: block; margin-bottom: 22px; color: #9aacbd; font-family: "Manrope", sans-serif; font-size: .75rem; font-weight: 800; letter-spacing: .1em; }
+    .service-card h3 { margin: 0 0 12px; font-family: "Manrope", sans-serif; font-size: 1.12rem; letter-spacing: -.03em; line-height: 1.3; }
+    .service-card p { margin: 0; color: #65748a; font-size: .86rem; line-height: 1.67; }
 
     .ecosystem { overflow: hidden; }
     .ecosystem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 95px; align-items: center; }
@@ -111,10 +135,10 @@
     .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; }.footer-inner strong { color: white; letter-spacing: .1em; }
 
     @media (max-width: 850px) {
-      .nav-links { display: none; }.hero { padding-top: 72px; padding-bottom: 72px; }.hero-grid, .ecosystem-grid, .future-grid, .contact-grid { grid-template-columns: 1fr; gap: 45px; }.hero-panel { justify-self: start; }.service-grid { grid-template-columns: 1fr 1fr; }.ecosystem-art { max-width: 490px; width: 100%; }.future-grid { gap: 18px; }
+      .nav-links { display: none; }.hero { padding-top: 72px; padding-bottom: 72px; min-height: 0; }.hero-grid, .ecosystem-grid, .future-grid, .contact-grid { grid-template-columns: 1fr; gap: 45px; }.hero-panel { justify-self: start; }.service-grid { grid-template-columns: 1fr 1fr; }.ecosystem-art { max-width: 490px; width: 100%; }.future-grid { gap: 18px; }
     }
     @media (max-width: 560px) {
-      .container { width: min(100% - 32px, 1140px); }.brand-logo { height: 48px; max-width: 72vw; }.nav .button { display: none; } header { height: 76px; }.hero { padding-top: 58px; padding-bottom: 58px; }.hero h1 { font-size: 2.55rem; }.hero-buttons { align-items: flex-start; flex-direction: column; }.service-header { align-items: start; flex-direction: column; }.service-grid { grid-template-columns: 1fr; }.service-card { min-height: auto; }.service-num { margin-bottom: 29px; }.stakeholder-list { grid-template-columns: 1fr; }.ecosystem-art { min-height: 365px; transform: scale(.89); transform-origin: left top; margin-bottom: -40px; }.contact { padding: 70px 0; }.footer-inner { align-items: flex-start; flex-direction: column; }
+      .container { width: min(100% - 32px, 1140px); }.brand-logo { height: 48px; max-width: 72vw; }.nav .button { display: none; } header { height: 76px; }.hero { padding-top: 58px; padding-bottom: 58px; }.hero-media::after { background: linear-gradient(180deg, rgba(248, 251, 253, .96) 0%, rgba(248, 251, 253, .9) 55%, rgba(248, 251, 253, .72) 100%); }.hero h1 { font-size: 2.55rem; }.hero-buttons { align-items: flex-start; flex-direction: column; }.service-header { align-items: start; flex-direction: column; }.service-grid { grid-template-columns: 1fr; }.service-card { min-height: auto; }.service-num { margin-bottom: 29px; }.stakeholder-list { grid-template-columns: 1fr; }.ecosystem-art { min-height: 365px; transform: scale(.89); transform-origin: left top; margin-bottom: -40px; }.contact { padding: 70px 0; }.footer-inner { align-items: flex-start; flex-direction: column; }
     }
   </style>
 </head>
@@ -133,6 +157,9 @@
 
   <main>
     <section class="hero">
+      <div class="hero-media" aria-hidden="true">
+        <img src="assets/hero-banner.jpg" alt="" />
+      </div>
       <div class="container hero-grid">
         <div>
           <div class="eyebrow">Personal injury, better connected</div>
@@ -143,7 +170,7 @@
         <aside class="hero-panel">
           <div class="panel-label">Available now</div>
           <h2>Clinical &amp; medical-legal services for the cases you support today.</h2>
-          <ul class="panel-list"><li>Initial nurse assessment <span>01</span></li><li>Care coordination <span>02</span></li><li>Medical-legal insight <span>03</span></li></ul>
+          <ul class="panel-list"><li>CINA™ assessment <span>01</span></li><li>Legal nurse case management <span>02</span></li><li>Care coordination <span>03</span></li></ul>
         </aside>
       </div>
     </section>
@@ -151,16 +178,24 @@
     <section class="services" id="services">
       <div class="container">
         <div class="service-header">
-          <div><div class="eyebrow">Available now</div><h2 class="section-title">The clinical foundation every case deserves.</h2></div>
-          <p class="section-intro">Our experienced nurses and medical-legal professionals deliver structured support at every stage of the patient journey.</p>
+          <div><div class="eyebrow">Service catalog</div><h2 class="section-title">Clinical and medical-legal services for every stage of the case.</h2></div>
+          <p class="section-intro">Structured modules that strengthen clinical visibility, documentation, coordination, and evidentiary support across the personal-injury journey.</p>
         </div>
         <div class="service-grid">
-          <article class="service-card"><span class="service-num">01 — CINA™</span><h3>Comprehensive Initial Nurse Assessment</h3><p>A structured, head-to-toe assessment capturing condition, relevant history, functional limitations, medications, recovery barriers, and accident-related concerns.</p></article>
-          <article class="service-card"><span class="service-num">02</span><h3>Nurse Case Management</h3><p>Ongoing clinical coordination and patient support that monitors progress, identifies barriers, supports adherence, and keeps recovery moving forward.</p></article>
-          <article class="service-card"><span class="service-num">03</span><h3>Legal Nurse Consulting</h3><p>Medical-legal analysis that translates complex medical information into clear, actionable insight for personal-injury cases.</p></article>
-          <article class="service-card"><span class="service-num">04</span><h3>Medical Record Review</h3><p>Structured review to identify clinical facts, treatment progression, missing documentation, inconsistencies, causation issues, and medical necessity concerns.</p></article>
-          <article class="service-card"><span class="service-num">05</span><h3>Life Care Planning Support</h3><p>Clinical collaboration and longitudinal record development for more complete future-care analysis and evaluation of long-term needs.</p></article>
-          <article class="service-card"><span class="service-num">06</span><h3>Evidence-Based Perspective</h3><p>Clinical insight that strengthens documentation, informs care decisions, and supports a more accountable experience for every stakeholder.</p></article>
+          <article class="service-card"><span class="service-num">S-01 — CINA™</span><h3>Comprehensive Initial Nurse Assessment</h3><p>Comprehensive nurse baseline addressing injury history, symptoms, function, medications, care status, risks, barriers, and coordination priorities.</p></article>
+          <article class="service-card"><span class="service-num">S-02</span><h3>Legal Nurse Case Management</h3><p>Ongoing nurse case monitoring, plan and activity records, status reporting, authorized provider communication, issue escalation, and follow-through.</p></article>
+          <article class="service-card"><span class="service-num">S-03</span><h3>Ongoing Care Coordination</h3><p>Appointment, recommendation, record, referral, and barrier tracking with authorized communications among counsel, patient, providers, and other participants.</p></article>
+          <article class="service-card"><span class="service-num">S-04</span><h3>Medical Record Review &amp; Chronologies</h3><p>Record organization, clinical review, treatment timeline, chronology, summary, gap identification, and focused issue analysis.</p></article>
+          <article class="service-card"><span class="service-num">S-05</span><h3>Certified Medical Records Coordination</h3><p>Record requests, authorization and certification coordination, status tracking, completeness review, organization, and secure delivery.</p></article>
+          <article class="service-card"><span class="service-num">S-06</span><h3>Medical-Legal Evidence Review &amp; Quality Assurance</h3><p>Focused review of mechanism, chronology, preexisting conditions, documentation consistency, treatment support, and evidentiary gaps for counsel.</p></article>
+          <article class="service-card"><span class="service-num">S-07</span><h3>Utilization / Treatment Review (UTR/UR)</h3><p>Attorney-directed review of proposed or completed care for clinical support, documentation sufficiency, timing, sequencing, and guideline alignment.</p></article>
+          <article class="service-card"><span class="service-num">S-09</span><h3>Pre-Litigation Clinical Case Screening</h3><p>Early clinical screening of records and proposed care to identify strengths, risks, documentation gaps, and questions before significant case investment.</p></article>
+          <article class="service-card"><span class="service-num">S-10</span><h3>Clinical Team Conferences &amp; Status Reporting</h3><p>Structured interdisciplinary conferences, issue lists, action tracking, recommendations for consideration, and periodic reports to authorized counsel.</p></article>
+          <article class="service-card"><span class="service-num">S-11</span><h3>Life Care Planning Support</h3><p>Data collection, record development, clinical coordination, and qualified life-care-planning support as defined in the applicable module.</p></article>
+          <article class="service-card"><span class="service-num">S-12</span><h3>Vocational Rehabilitation Support</h3><p>Functional and vocational information development, record support, coordination, and qualified vocational consulting when expressly retained.</p></article>
+          <article class="service-card"><span class="service-num">S-13</span><h3>Expert Witness, Deposition &amp; Trial Support</h3><p>Separate written retention for expert reports, affidavits, deposition, hearing, or trial services by an accepted qualified professional.</p></article>
+          <article class="service-card"><span class="service-num">S-14</span><h3>Case Visibility Platform &amp; Practice Access</h3><p>Authorized portal access for scheduling, case status, task tracking, records, communications, reporting, and other enabled tools.</p></article>
+          <article class="service-card"><span class="service-num">S-15</span><h3>Other Approved Service</h3><p>A service expressly described in an incorporated module, Statement of Work, or written assignment authorization.</p></article>
         </div>
       </div>
     </section>
