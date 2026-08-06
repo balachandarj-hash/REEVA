@@ -211,10 +211,57 @@
         text-align: left;
       }
       .nav .button { width: 100%; margin-top: 14px; }
-      .hero { padding-top: 72px; padding-bottom: 72px; min-height: 0; }.hero-grid, .ecosystem-grid, .future-grid, .contact-grid { grid-template-columns: 1fr; gap: 45px; }.hero-panel { justify-self: start; }.service-header .section-title { white-space: normal; }.service-grid { grid-template-columns: 1fr 1fr; }.ecosystem-art { max-width: 490px; width: 100%; }.future-grid { gap: 18px; }
+      .hero {
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+        padding: 0;
+        background: #f7fafc;
+      }
+      .hero-media {
+        position: relative;
+        inset: auto;
+        z-index: 0;
+        width: 100%;
+        height: 280px;
+        flex-shrink: 0;
+      }
+      .hero-media img {
+        object-position: center 28%;
+      }
+      .hero-media::after {
+        background: linear-gradient(180deg, rgba(6, 26, 59, .12) 0%, transparent 45%, rgba(247, 250, 252, .55) 100%);
+      }
+      .hero-grid {
+        min-height: 0;
+        padding: 36px 0 64px;
+        gap: 28px;
+      }
+      .hero-panel { justify-self: start; max-width: none; }
+      .service-header .section-title { white-space: normal; }
+      .service-grid { grid-template-columns: 1fr 1fr; }
+      .ecosystem-art { max-width: 490px; width: 100%; }
+      .future-grid { gap: 18px; }
+      .hero-grid, .ecosystem-grid, .future-grid, .contact-grid { grid-template-columns: 1fr; gap: 45px; }
+      .hero-grid { gap: 28px; }
     }
     @media (max-width: 560px) {
-      .container { width: min(100% - 32px, 1140px); }.brand-logo { height: 84px; max-width: calc(94vw - 56px); }.nav { gap: 0; }.hero { padding-top: 58px; padding-bottom: 58px; }.hero-media::after { background: linear-gradient(180deg, rgba(248, 251, 253, .96) 0%, rgba(248, 251, 253, .9) 55%, rgba(248, 251, 253, .72) 100%); }.hero h1 { font-size: 2.55rem; }.hero-buttons { align-items: flex-start; flex-direction: column; }.service-header .section-title { white-space: normal; }.service-grid { grid-template-columns: 1fr; }.service-card { min-height: auto; }.service-num { margin-bottom: 29px; }.stakeholder-list { grid-template-columns: 1fr; }.ecosystem-art { min-height: 365px; transform: scale(.89); transform-origin: left top; margin-bottom: -40px; }.contact { padding: 70px 0; }.footer-inner { align-items: flex-start; flex-direction: column; }
+      .container { width: min(100% - 32px, 1140px); }
+      .brand-logo { height: 84px; max-width: calc(94vw - 56px); }
+      .nav { gap: 0; }
+      .hero-media { height: 240px; }
+      .hero-media img { object-position: center 22%; }
+      .hero-grid { padding: 28px 0 52px; }
+      .hero h1 { font-size: 2.35rem; }
+      .hero-buttons { align-items: flex-start; flex-direction: column; }
+      .service-header .section-title { white-space: normal; }
+      .service-grid { grid-template-columns: 1fr; }
+      .service-card { min-height: auto; }
+      .service-num { margin-bottom: 29px; }
+      .stakeholder-list { grid-template-columns: 1fr; }
+      .ecosystem-art { min-height: 365px; transform: scale(.89); transform-origin: left top; margin-bottom: -40px; }
+      .contact { padding: 70px 0; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
     }
   </style>
 </head>
@@ -240,7 +287,7 @@
 
   <main>
     <section class="hero">
-      <div class="hero-media" aria-hidden="true">
+      <div class="hero-media">
         <img src="assets/hero-nurses.jpg" alt="Professional REVVA clinical nurses reviewing patient care" />
       </div>
       <div class="container hero-grid">
